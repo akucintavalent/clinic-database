@@ -47,3 +47,10 @@ CREATE TABLE medical_treatments(
   FOREIGN KEY (treatment_id) REFERENCES treatments(id) ON DELETE RESTRICT ON UPDATE CASCADE,
   PRIMARY KEY (medical_history__id, treatment_id)
 );
+
+CREATE INDEX ON medical_treatments (treatment_id);
+CREATE INDEX ON medical_treatments (medical_history__id);
+CREATE INDEX ON invoice_items (invoice_id);
+CREATE INDEX ON invoice_items (treatment_id);
+CREATE INDEX ON invoices (medical_history__id);
+CREATE INDEX ON medical_histories (patient_id);
